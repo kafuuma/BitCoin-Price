@@ -1,0 +1,11 @@
+FROM python:3.7
+
+WORKDIR /usr/src/app
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . /usr/src/app
+RUN chmod a+x scripts/start.sh
+
+CMD ["scripts/start.sh"]

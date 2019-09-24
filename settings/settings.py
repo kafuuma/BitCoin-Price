@@ -10,11 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
-import os
 
+from dotenv import load_dotenv
+import os
+load_dotenv()
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -23,7 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'b3zl4oyhb#x0%rsmmtt0#2%fg_hooo-+^acc^qlx)6+qyuc@8w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
+DEBUG = os.getenv('DEBUG', False)
+ENVIRONMENT = os.getenv('ENVIRONMENT', 'production')
 
 ALLOWED_HOSTS = []
 
@@ -102,8 +105,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 GRAPHENE = {
-    'SCHEMA': 'settings.schema.schema'
+    'SCHEMA': 'schema.schema'
 }
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -123,3 +127,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+BITCOIN_URL = os.getenv('BITCOIN_URL')

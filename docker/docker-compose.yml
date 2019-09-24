@@ -1,0 +1,11 @@
+version: '3'
+services:
+  bitcoin:
+    container_name: bitcoin_app
+    env_file:
+      - ./prod.env
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    ports:
+      - '80:8000'
