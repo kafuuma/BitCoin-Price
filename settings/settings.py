@@ -28,7 +28,7 @@ SECRET_KEY = 'b3zl4oyhb#x0%rsmmtt0#2%fg_hooo-+^acc^qlx)6+qyuc@8w'
 DEBUG = os.getenv('DEBUG', False)
 ENVIRONMENT = os.getenv('ENVIRONMENT', 'production')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -107,6 +107,9 @@ AUTH_PASSWORD_VALIDATORS = [
 GRAPHENE = {
     'SCHEMA': 'schema.schema'
 }
+
+
+ALLOWED_HOSTS = ['*']
 
 
 # Internationalization
